@@ -1,0 +1,20 @@
+ 
+.p_subnav{
+    color: white; margin: 0;
+}
+  #effect {
+    position: absolute;
+    z-index: 4;
+    right: 0;
+    width: 400px;
+    height:auto;
+    padding: 0.4em;
+    background-color: white;
+    border-radius: 5%;
+
+  }
+  #effect h3 {
+    margin: 0;
+    padding: 0.4em;
+    text-align: center;
+  }
