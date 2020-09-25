@@ -1,0 +1,180 @@
+{% include "Default/header.html" %}
+{% include "Default/banner.html" %}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Últimos Lanzamientos</h1>
+        <div class="owl-carousel owl-theme h-100 " >
+
+
+            {% for item in CarrProducts %}
+            <div class="card shadow" style="width: 15rem; height: 100%;">
+                <!-- <div id="btn"><span class="noselect">Ver +</span><div id="circle"></div></div> -->
+
+                    {% if item.ProdPrev %}
+                    <div class="ribbon-wrapper2">
+                        <div class="glow">&nbsp;</div>
+                        <div class="ribbon-front">
+                            Preventa
+                        </div>
+                        <div class="ribbon-edge-topleft"></div>
+                        <div class="ribbon-edge-topright"></div>
+                        <div class="ribbon-edge-bottomleft"></div>
+                        <div class="ribbon-edge-bottomright"></div>
+                    </div>
+                    {%endif%}
+              
+                <div class="imgProduct">
+                    
+                    <div class="btnread">
+                        <a href="details/{{item.ProductoId}}" class="details" data-toggle="modal"
+                            data-target="#exampleModal" id="btndetails">Ver detalles</a>
+                    </div>
+
+
+                    <img class="card-img-top img-fluid" src="/media/{{item.ProdImg}}" alt="Responsive image"
+                        id="imgProduct">
+
+                </div>
+                <div class="card-body d-flex flex-wrap">
+                    <h6 class="card-title">{{item.ProdName}}</h6>
+
+                    <div class="d-flex  align-self-end flex-wrap" style="width: 100%;">
+                        <h6 style="width: 100%;">S/.{{item.ProdCost}}</h6>
+                        <div class="d-flex  flex-column" style=" width: 100%;">
+                            <a href="#" class="btn btn-dark">
+                                Add cart &nbsp;
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+            <!-- <div
+                style="width:220px; height:250px; margin:5% auto; background: rgb(255,214,94); /* Old browsers */
+                    background: -moz-linear-gradient(top, rgba(255,214,94,1) 0%, rgba(254,191,4,1) 100%); /* FF3.6+ */
+                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,214,94,1)), color-stop(100%,rgba(254,191,4,1))); /* Chrome,Safari4+ */
+                    background: -webkit-linear-gradient(top, rgba(255,214,94,1) 0%,rgba(254,191,4,1) 100%); /* Chrome10+,Safari5.1+ */
+                    background: -o-linear-gradient(top, rgba(255,214,94,1) 0%,rgba(254,191,4,1) 100%); /* Opera 11.10+ */
+                    background: -ms-linear-gradient(top, rgba(255,214,94,1) 0%,rgba(254,191,4,1) 100%); /* IE10+ */
+                    background: linear-gradient(to bottom, rgba(255,214,94,1) 0%,rgba(254,191,4,1) 100%); /* W3C */
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd65e', endColorstr='#febf04',GradientType=0 ); /* IE6-9 */">
+                <br /><br /><br />
+           
+            </div> -->
+        </div>
+    </div>
+    <div class="jumbotron">
+        <h1 class="display-4">Nuestro Catálogo</h1>
+
+        <div class="row">
+            <div class="col-lg-3">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link list-group-item list-group-item-action" href="#GeneroNav"
+                            data-toggle="collapse" role="button" aria-expanded="true" aria-controls="GeneroNav">
+                            <div class="ml-4"> <i class="fas fa-caret-down"></i> Filtrar por Género</div>
+                        </a>
+                        <div class="collapse show" id="GeneroNav">
+                            <ul class="nav nav-sm flex-column">
+                                {% for item in Genero  %}
+
+                                <li class="nav-item ml-5">
+                                    <a href="./index.html" class="nav-link active">
+                                        {{item.GenNomb}}
+                                    </a>
+                                </li>
+                                {%endfor%}
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link list-group-item list-group-item-action" href="#sidebarDashboards"
+                            data-toggle="collapse" role="button" aria-expanded="true" aria-controls="sidebarDashboards">
+                            <div class="ml-4"> <i class="fas fa-caret-down"></i> Filtrar por Plataforma</div>
+                        </a>
+                        <div class="collapse show" id="sidebarDashboards" style="">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item ml-5">
+                                    <a href="filter/0" class="nav-link active filter">
+                                        Todos
+                                    </a>
+                                </li>
+                                {% for item in Plataforma  %}
+
+                                <li class="nav-item ml-5">
+                                    <a href="filter/{{item.PlatId}}" class="nav-link active filter">
+                                        {{item.PlatName}}
+                                    </a>
+                                </li>
+                                {%endfor%}
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link list-group-item list-group-item-action" href="#ClasiNav"
+                            data-toggle="collapse" role="button" aria-expanded="true" aria-controls="sidebarDashboards">
+                            <div class="ml-4"> <i class="fas fa-caret-down"></i> Filtrar por Clasificación ESRB</div>
+                        </a>
+                        <div class="collapse show" id="ClasiNav">
+                            <ul class="nav nav-sm flex-column">
+                                {% for value in Clasi %}
+
+                                <li class="nav-item ml-5">
+                                    <a href="./index.html" class="nav-link active">
+                                        {{value}}
+                                    </a>
+                                </li>
+                                {%endfor%}
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+
+
+            </div>
+            <div class="col-lg-9" id="ListView">
+                <div class="d-flex flex-wrap">
+
+                    {% for item in CatalProducts %}
+                    <div class=" col-4 col-lg-3 col-sm-10">
+
+                        <div class="card ">
+                            <img class=" card-img-top img-fluid" src="/media/{{item.ProdImg}}" alt="Responsive image">
+                            <div class="container">
+                                <div class="cad-title">{{item.ProdName}}</div>
+                                <div class="card-body">
+                                    {{item.ProdCost}}
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="max-width: 900px;" role="document">
+        <div id="content">
+
+        </div>
+
+
+    </div>
+</div>
+</div>
+{% include "Default/footer.html" %}
