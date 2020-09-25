@@ -15,7 +15,7 @@ class IndexController():
         Generos=Genero.objects.all()
 
         context = {"CarrProducts": CarrProducts,"CatalProducts":CatalProducts,"Plataforma":Plataformas,"Genero":Generos,"Clasi":Clasificacion}
-        return render(request, "Views/Default/base.html", context)
+        return render(request, "Default/base.html", context)
     def List(request):
         Productos = Producto.objects.all()
         Plataformas = Plataforma.objects.all()
@@ -23,17 +23,16 @@ class IndexController():
         Clasificacion=[ ]
         for x in range(0,len(Clasi)):
             Clasificacion.append(Clasi[x][0])
-
         Generos=Genero.objects.all()
 
         context = {"Productos": Productos,"Plataforma":Plataformas,"Genero":Generos,"Clasi":Clasificacion}
-        return render(request, "Views/Default/ListView.html", context)
+        return render(request, "Default/ListView.html", context)
     def about(request):
-        return render(request, "Views/Index/index.html")
+        return render(request, "Index/index.html")
     def details(request,idproducto):
         Productos = Producto.objects.get(ProductoId=idproducto)
         context = {"details": Productos}
-        return render(request, "Views/Index/details.html", context)
+        return render(request, "Index/details.html", context)
     def filtrar(self,PlatId):
         print(PlatId) 
 
@@ -44,6 +43,6 @@ class IndexController():
 
 
         context = {"CatalProducts":CatalProducts}
-        return render(self, "Views/Index/ListView.html", context)
+        return render(self, "Index/ListView.html", context)
 
 

@@ -5,13 +5,17 @@ $(function () {
             content: '' +
             '<form action="" class="formName">' +
             '<div class="form-group">' +
-            '<label>Enter something here</label>' +
-            '<input type="text" placeholder="Your name" class="name form-control" required />' +
+            '<label>Usuario</label>' +
+            '<input type="text" placeholder="Usuario" class="name form-control" required />' +
+            '</div>' +
+            '<div class="form-group">' +
+            '<label>Contraseña</label>' +
+            '<input type="password" placeholder="Contraseña" class="name form-control" required />' +
             '</div>' +
             '</form>',
             buttons: {
                 formSubmit: {
-                    text: 'Submit',
+                    text: 'Entrar',
                     btnClass: 'btn-blue',
                     action: function () {
                         var name = this.$content.find('.name').val();
