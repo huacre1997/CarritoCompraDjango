@@ -3,6 +3,7 @@ from ..models import Producto,Plataforma,Genero
 
 
 class IndexController():
+
     def index(request):
         CarrProducts = Producto.objects.all().order_by("created")[:10][::-1]
         CatalProducts=Producto.objects.all()

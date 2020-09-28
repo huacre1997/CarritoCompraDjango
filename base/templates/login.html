@@ -1,0 +1,39 @@
+<div id="formcontent">
+  <form id="formlogin">
+    {% csrf_token %}
+    <div class="form-group">
+      <input type="text" class="form-control form-control-user" id="id_username" name="username" aria-describedby="emailHelp" placeholder="Usuario">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control form-control-user" id="id_password" name="password" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  Si aun no tiene una cuenta. Registrese <a href="#">aquí</a>
+  <style>
+    .jconfirm {
+      z-index: 500 !important;
+    }
+  </style>
+  <script>
+    $("#formlogin").submit(function (e) {
+      e.preventDefault();
+      $.ajax({
+        type: "POST",
+        url: "{% url 'base:login' %}",
+        data: $("#formlogin").serialize(),
+        dataType: "json",
+        success: function (response) {
+          console.log(response);
+          if (!response.stat) {
+            TopMessage("El correo y la contraseña no coinciden. Por favor intente de nuevo.","error")
+            $("#id_password").val("")
+          }
+          else{
+            location.href = '{% url "base:index" %}';
+          }
+        },
+      });
+    });
+  </script>
+</div>

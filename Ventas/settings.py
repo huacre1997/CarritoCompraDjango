@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "Ventas",
     'cliente', 
-    "base",
+    'base',
     'smart_selects'
 ]
 AUTH_USER_MODEL = 'cliente.CustomCliente' # new
@@ -123,6 +124,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+LOGIN_REDIRECT_URL="/"
+LOGOUT_REDIRECT_URL="/"
 
 MEDIA_URL = "/media/"
 STATIC_URL = '/static/'

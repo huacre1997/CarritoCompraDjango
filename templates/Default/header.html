@@ -79,6 +79,36 @@
 
                         </a>
                     </div>
+               
+                    
+                      <li class="dropdown dropdown-3">
+                        <img src="{% static 'icons/usuario.png'%}" alt="" id="userIcon">
+                        &nbsp;
+                        {% if request.user.is_authenticated %}
+                        <ul class="dropdown_menu dropdown_menu-3">
+                            <li class="dropdown_item-1">Mi cuenta</li>
+                            <li class="dropdown_item-2">Historial</li>
+                            <li class="dropdown_item-3">
+
+                              <a href="{% url 'base:logout' %}" class="dropdown_item-5">Cerrar Sesión</a>
+                            </li>
+                          </ul>
+                        {%else%}
+                        <ul class="dropdown_menu dropdown_menu-3">
+                            <li class="dropdown_item-1">
+                                <button id="btnLogin" class="btn btn-secondary">Entrar</button>
+                                Si no se encuentra registrado <a href="">Registrese aquí</a>                              </li>
+                          </ul>
+                        {% endif %}
+                       
+                      </li>
+               <!-- {% if request.user.is_authenticated %}
+               Bienvenido {{request.user.first_name}}
+
+               {% else %}
+                 
+               {% endif %} -->
+               
                 </div>
             </nav>
         </header>
@@ -88,3 +118,11 @@
                 Si no se encuentra registrado <a href="">Registrese aquí</a>
             </p>
         </div>
+        <div id="showOptionUsers" style="display: none;" class="ui-widget-content ui-corner-all">
+            <ul>
+                <li>Mi cuenta</li>
+                <li>Configurar</li>
+                <li><a href="">Cerrar sesion</a></li>
+            </ul>
+        </div>
+  

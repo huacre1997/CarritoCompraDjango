@@ -14,8 +14,8 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  padding-top: 5px; }
-  #btn #circle {
+  padding-top: 5px;
+  #circle {
     width: 5px;
     height: 5px;
     background: transparent;
@@ -24,27 +24,31 @@
     top: 0;
     left: 25%;
     overflow: hidden;
-    transition: 500ms; }
-  #btn:hover {
-    background: transparent; }
-    #btn:hover #circle {
+    transition: 500ms;
+  }
+  &:hover {
+    background: transparent;
+    #circle {
       height: 50px;
       width: 150px;
       left: 0;
       border-radius: 0;
-      border-bottom: 2px solid #eee; }
-
+      border-bottom: 2px solid #eee;
+    }
+  }
+}
 .noselect {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; }
+  user-select: none;
+}
 
 .imgProduct {
-  position: relative; }
-
+  position: relative;
+}
 /* .imgProduct::after{
     content: "";
     z-index: 1;
@@ -58,10 +62,11 @@
     opacity: 30%;
     cursor: pointer;
   } */
+
 .card:hover .btnread {
   height: 10%;
-  transition: 0.5s; }
-
+  transition: 0.5s;
+}
 .btnread {
   z-index: 2;
   text-align: center;
@@ -73,16 +78,21 @@
   cursor: pointer;
   background-color: dimgray;
   opacity: 80%;
-  transition: 0.2s; }
-  .btnread > a {
+  transition: 0.2s;
+  >a {
     padding: 0 4rem;
-    color: white; }
-    .btnread > a :hover {
+
+    color: white;
+    :hover {
       text-decoration: none;
-      color: white; }
-  .btnread :hover {
+      color: white;
+    }
+  }
+  :hover {
     text-decoration: none;
-    color: black; }
+    color: black;
+  }
+}
 
 /* .btnread::after{
     content: "";
@@ -120,24 +130,27 @@
     transition: 0.5s;
     
   } */
+
+
 .imgProduct:hover::after {
   transition: 0.5s;
-  background: black; }
+  background: black;
+}
 
 /* #carr:hover #carrIcon{
     transition: 0.5s;
     right: 30px;
   } */
+
 .navbar-fixed-top {
   position: fixed;
   right: 0;
   left: 0;
   top: 0;
-  border-width: 0 0 1px; }
-
+  border-width: 0 0 1px;
+}
 .navbar-fixed-bottom {
   bottom: 0;
   margin-bottom: 0;
-  border-width: 1px 0 0; }
-
-/*# sourceMappingURL=more+.css.map */
+  border-width: 1px 0 0;
+}
